@@ -1,0 +1,12 @@
+# Enforce LF line endings for all text files in this repository.
+* text=auto eol=lf
+
+# Binary files — no line-ending conversion.
+*.db      binary
+*.db-wal  binary
+*.db-shm  binary
+*.png     binary
+*.jpg     binary
+*.ico     binary
+*.woff    binary
+*.woff2   binary
