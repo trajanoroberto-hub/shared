@@ -1,0 +1,29 @@
+/* ── Gato Preto Radio — Metadata Field Palette ────────────────────────────────
+   Single source of truth for track/album metadata display colours.
+   Used by Singer Magpie (via theme.css @import) and Chilled Koala (directly).
+
+   VPS symlinks (set up once per app):
+     ln -sf /opt/shared/palette.css /opt/singer_magpie/static/palette.css
+     ln -sf /opt/shared/palette.css /opt/chilled_koala/static/palette.css
+
+   HTML usage in Chilled Koala (<head>):
+     <link rel="stylesheet" href="/static/palette.css">
+
+   Singer Magpie uses this automatically via theme.css — no extra link needed.
+──────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  --field-title:      #e2e8f0;   /* TITLE, ORIGINALDATE  — primary text    */
+  --field-artist:     #67e8f9;   /* ARTIST, ALBUMARTIST  — cyan            */
+  --field-album:      #e879f9;   /* ALBUM                — fuchsia         */
+  --field-genre:      #f59e0b;   /* GENRE, DATE/YEAR     — amber           */
+  --field-separator:  #22c55e;   /* — dash between fields — green          */
+  --field-folder:     #38bdf8;   /* folder path line     — light blue      */
+  --field-warn:       #f97316;   /* warnings, errors     — orange          */
+  --field-ok:         #22c55e;   /* status OK            — green           */
+}
+
+body.light-theme {
+  --field-title:      #1e293b;   /* matches --text in light theme          */
+  --field-folder:     #0369a1;   /* darker blue for light background       */
+}

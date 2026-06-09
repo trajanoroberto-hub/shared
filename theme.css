@@ -1,13 +1,16 @@
 /* ── Gato Preto Radio — Shared Theme v1.0.0 ──────────────────────────────────
    Master file : /opt/shared/theme.css
-   Symlinked to:
-     /opt/singer_magpie/static/theme.css
-     /opt/chilled_koala/static/theme.css
+   Symlinked to: /opt/singer_magpie/static/theme.css
 
-   HTML usage (add to <head> in this order):
+   Imports palette.css for metadata field colours (shared with Chilled Koala).
+   Requires: /opt/singer_magpie/static/palette.css → /opt/shared/palette.css
+
+   HTML usage in Singer Magpie (<head>):
      <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
      <link rel="stylesheet" href="/static/theme.css">
 ──────────────────────────────────────────────────────────────────────────── */
+
+@import url('palette.css');
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -56,7 +59,7 @@ input[readonly]{opacity:.6;}
 .album-item.disabled{opacity:.4;cursor:not-allowed;}
 .a-line1{font-size:14px;font-weight:500;color:var(--text);font-family:var(--mono);}
 .a-line2{font-size:14px;color:var(--amber);margin-top:4px;font-family:var(--mono);}
-.a-line3{font-size:14px;color:#38bdf8;margin-top:4px;font-family:var(--mono);}
+.a-line3{font-size:14px;color:var(--field-folder);margin-top:4px;font-family:var(--mono);}
 .scan-status{padding:10px 14px;border-radius:6px;font-size:14px;font-family:var(--mono);margin-bottom:10px;display:none;}
 .scan-status.scanning{display:block;background:rgba(79,142,247,.1);border:1px solid rgba(79,142,247,.2);color:var(--accent);}
 .scan-status.done{display:block;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);color:var(--green);}
@@ -87,7 +90,7 @@ input[readonly]{opacity:.6;}
 .lb-max{background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.3);}.lb-max .lb-val{color:#f97316;}
 .lb-neutral{background:var(--surface2);border:1px solid var(--border);}.lb-neutral .lb-val{color:var(--text);font-size:16px;}
 .terminal{background:#0a0d14;border:1px solid var(--border);border-radius:6px;padding:12px;font-family:var(--mono);font-size:14px;max-height:400px;overflow-y:auto;margin-top:10px;}
-.t-ok{color:var(--green);}.t-norm{color:var(--amber);}.t-fail{color:#f97316;}.t-muted{color:var(--muted);}.t-file{color:#38bdf8;}.t-album{color:var(--text);font-size:14px;font-weight:500;}
+.t-ok{color:var(--field-ok);}.t-norm{color:var(--field-genre);}.t-fail{color:var(--field-warn);}.t-muted{color:var(--muted);}.t-file{color:var(--field-folder);}.t-album{color:var(--text);font-size:14px;font-weight:500;}
 .move-log{background:#0a0d14;border:1px solid var(--border);border-radius:6px;padding:12px;font-family:var(--mono);font-size:14px;max-height:300px;overflow-y:auto;margin-top:10px;}
 .info-line{font-size:12px;color:var(--muted);padding:4px 0;}
 .filter-input{width:100%;margin-bottom:8px;background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:7px 10px;border-radius:5px;font-family:var(--mono);font-size:13px;outline:none;}
@@ -97,7 +100,7 @@ body.light-theme{
   --text:#1e293b;--muted:#64748b;--accent:#2563eb;
   --green:#16a34a;--red:#dc2626;--amber:#d97706;--blue:#2563eb;
 }
-body.light-theme .a-line3{color:#0369a1;}
+/* .a-line3 light-theme colour handled by palette.css --field-folder override */
 body.light-theme .terminal,body.light-theme .move-log{background:#f8fafc;}
 body.light-theme .bulk-update{background:linear-gradient(135deg,#fef3c7,#fde68a);}
 body.light-theme input[type=text],body.light-theme input[type=password]{background:#f8fafc;color:#1e293b;}
